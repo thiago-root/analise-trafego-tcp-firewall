@@ -1,0 +1,20 @@
+services:
+  # Servidor Nginx (Simula a porta 8080 ABERTA)
+  web_servidor:
+    image: nginx:alpine
+    container_name: lab_web_open
+    ports:
+      - "8080:80"
+    restart: unless-stopped
+
+  # Servidor Alpine com iptables (Simula a porta 9000 BLOQUEADA via DROP)
+  firewall_sim:
+    image: alpine
+    container_name: lab_firewall
+    cap_add:
+      - NET_ADMIN
+    command: >
+      sh -c "apk add --no-cache iptables &&
+             iptables -A INPUT -p tcp --dport 9000 -j DROP &&
+             tail -f /dev/null"
+    restart: unless-stopped
