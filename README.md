@@ -59,10 +59,6 @@ O objetivo do projeto é demonstrar e analisar visualmente as diferenças fundam
 
 ---
 
----
-
----
-
 ## 📊 Conclusões Chave
 
 * **Diferença entre Fechada e Bloqueada:** Portas fechadas respondem ativamente com `RST` em milissegundos, enquanto portas bloqueadas por filtros `DROP` ignoram os pacotes, forçando retransmissões no cliente e resultando em estouro de *timeout*.
