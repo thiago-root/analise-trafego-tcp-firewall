@@ -61,10 +61,12 @@ O objetivo do projeto é demonstrar e analisar visualmente as diferenças fundam
 
 ---
 
-## 📊 Conclusão
-* **Portas Fechadas (`RST`):** Respondem de forma atenta e ativa informando a indisponibilidade da porta.
-* **Portas Bloqueadas (`DROP`):** Ocultam o estado real da porta e forçam a pilha TCP/IP do cliente a esgotar suas retransmissões, gerando atraso e consumo de recursos de conexão.
-* **Diagnóstico de Redes:** Identificar essas respostas no Wireshark é fundamental para isolar rapidamente problemas de aplicação (servidor inativo) de regras de segurança restritivas em firewalls e ACLs de rede.
+---
+
+## 📊 Conclusões Chave
+
+* **Diferença entre Fechada e Bloqueada:** Portas fechadas respondem ativamente com `RST` em milissegundos, enquanto portas bloqueadas por filtros `DROP` ignoram os pacotes, forçando retransmissões no cliente e resultando em estouro de *timeout*.
+* **Diagnóstico de Redes:** A análise visual via Wireshark permite identificar rapidamente problemas de conectividade, diferenciando falhas de aplicação (servidor fora do ar / porta fechada) de bloqueios por infraestrutura/segurança (firewall / ACLs).
 
 ## 💻 Como Reproduzir o Laboratório
 
